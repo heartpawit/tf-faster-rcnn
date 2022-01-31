@@ -215,7 +215,6 @@ def reg_loss(*args):
     #
     loss_fn = tf.losses.Huber(reduction=tf.losses.Reduction.NONE)
     loss_for_all = loss_fn(y_true, y_pred)
-    loss_for_all = tf.reduce_sum(loss_for_all, axis=-1)
     #
     pos_cond = tf.reduce_any(tf.not_equal(y_true, tf.constant(0.0)), axis=-1)
     pos_mask = tf.cast(pos_cond, dtype=tf.float32)
