@@ -83,7 +83,7 @@ def faster_rcnn_generator(dataset, anchors, hyper_params):
         for image_data in dataset:
             img, gt_boxes, gt_labels = image_data
             bbox_deltas, bbox_labels = calculate_rpn_actual_outputs(anchors, gt_boxes, gt_labels, hyper_params)
-            yield (img, gt_boxes, gt_labels, bbox_deltas, bbox_labels), ()
+            yield (img, gt_boxes, gt_labels, bbox_deltas, bbox_labels),
 
 def rpn_generator(dataset, anchors, hyper_params):
     """Tensorflow data generator for fit method, yielding inputs and outputs.
